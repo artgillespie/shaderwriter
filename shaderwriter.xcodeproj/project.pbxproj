@@ -1,0 +1,285 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C85189F5152E2F1000EA164B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C85189F4152E2F1000EA164B /* UIKit.framework */; };
+		C85189F7152E2F1000EA164B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C85189F6152E2F1000EA164B /* Foundation.framework */; };
+		C85189F9152E2F1000EA164B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C85189F8152E2F1000EA164B /* CoreGraphics.framework */; };
+		C85189FF152E2F1000EA164B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C85189FD152E2F1000EA164B /* InfoPlist.strings */; };
+		C8518A01152E2F1000EA164B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C8518A00152E2F1000EA164B /* main.m */; };
+		C8518A05152E2F1000EA164B /* TSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C8518A04152E2F1000EA164B /* TSAppDelegate.m */; };
+		C8518A08152E2F1000EA164B /* TSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8518A07152E2F1000EA164B /* TSViewController.m */; };
+		C8518A0B152E2F1000EA164B /* TSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8518A09152E2F1000EA164B /* TSViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C85189F0152E2F1000EA164B /* shaderwriter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shaderwriter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C85189F4152E2F1000EA164B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C85189F6152E2F1000EA164B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C85189F8152E2F1000EA164B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C85189FC152E2F1000EA164B /* shaderwriter-Info.plist */ = {isa = PBXFileReference; path = "shaderwriter-Info.plist"; sourceTree = "<group>"; };
+		C85189FE152E2F1000EA164B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C8518A00152E2F1000EA164B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C8518A02152E2F1000EA164B /* shaderwriter-Prefix.pch */ = {isa = PBXFileReference; path = "shaderwriter-Prefix.pch"; sourceTree = "<group>"; };
+		C8518A03152E2F1000EA164B /* TSAppDelegate.h */ = {isa = PBXFileReference; path = TSAppDelegate.h; sourceTree = "<group>"; };
+		C8518A04152E2F1000EA164B /* TSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSAppDelegate.m; sourceTree = "<group>"; };
+		C8518A06152E2F1000EA164B /* TSViewController.h */ = {isa = PBXFileReference; path = TSViewController.h; sourceTree = "<group>"; };
+		C8518A07152E2F1000EA164B /* TSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSViewController.m; sourceTree = "<group>"; };
+		C8518A0A152E2F1000EA164B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TSViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C85189ED152E2F1000EA164B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C85189F5152E2F1000EA164B /* UIKit.framework in Frameworks */,
+				C85189F7152E2F1000EA164B /* Foundation.framework in Frameworks */,
+				C85189F9152E2F1000EA164B /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C85189E5152E2F1000EA164B = {
+			isa = PBXGroup;
+			children = (
+				C85189FA152E2F1000EA164B /* shaderwriter */,
+				C85189F3152E2F1000EA164B /* Frameworks */,
+				C85189F1152E2F1000EA164B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C85189F1152E2F1000EA164B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C85189F0152E2F1000EA164B /* shaderwriter.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C85189F3152E2F1000EA164B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C85189F4152E2F1000EA164B /* UIKit.framework */,
+				C85189F6152E2F1000EA164B /* Foundation.framework */,
+				C85189F8152E2F1000EA164B /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C85189FA152E2F1000EA164B /* shaderwriter */ = {
+			isa = PBXGroup;
+			children = (
+				C8518A03152E2F1000EA164B /* TSAppDelegate.h */,
+				C8518A04152E2F1000EA164B /* TSAppDelegate.m */,
+				C8518A06152E2F1000EA164B /* TSViewController.h */,
+				C8518A07152E2F1000EA164B /* TSViewController.m */,
+				C8518A09152E2F1000EA164B /* TSViewController.xib */,
+				C85189FB152E2F1000EA164B /* Supporting Files */,
+			);
+			path = shaderwriter;
+			sourceTree = "<group>";
+		};
+		C85189FB152E2F1000EA164B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C85189FC152E2F1000EA164B /* shaderwriter-Info.plist */,
+				C85189FD152E2F1000EA164B /* InfoPlist.strings */,
+				C8518A00152E2F1000EA164B /* main.m */,
+				C8518A02152E2F1000EA164B /* shaderwriter-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C85189EF152E2F1000EA164B /* shaderwriter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8518A0E152E2F1000EA164B /* Build configuration list for PBXNativeTarget "shaderwriter" */;
+			buildPhases = (
+				C85189EC152E2F1000EA164B /* Sources */,
+				C85189ED152E2F1000EA164B /* Frameworks */,
+				C85189EE152E2F1000EA164B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = shaderwriter;
+			productName = shaderwriter;
+			productReference = C85189F0152E2F1000EA164B /* shaderwriter.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C85189E7152E2F1000EA164B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TS;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "tapsquare, llc";
+			};
+			buildConfigurationList = C85189EA152E2F1000EA164B /* Build configuration list for PBXProject "shaderwriter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C85189E5152E2F1000EA164B;
+			productRefGroup = C85189F1152E2F1000EA164B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C85189EF152E2F1000EA164B /* shaderwriter */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C85189EE152E2F1000EA164B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C85189FF152E2F1000EA164B /* InfoPlist.strings in Resources */,
+				C8518A0B152E2F1000EA164B /* TSViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C85189EC152E2F1000EA164B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8518A01152E2F1000EA164B /* main.m in Sources */,
+				C8518A05152E2F1000EA164B /* TSAppDelegate.m in Sources */,
+				C8518A08152E2F1000EA164B /* TSViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C85189FD152E2F1000EA164B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C85189FE152E2F1000EA164B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C8518A09152E2F1000EA164B /* TSViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C8518A0A152E2F1000EA164B /* en */,
+			);
+			name = TSViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C8518A0C152E2F1000EA164B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		C8518A0D152E2F1000EA164B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C8518A0F152E2F1000EA164B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "shaderwriter/shaderwriter-Prefix.pch";
+				INFOPLIST_FILE = "shaderwriter/shaderwriter-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C8518A10152E2F1000EA164B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "shaderwriter/shaderwriter-Prefix.pch";
+				INFOPLIST_FILE = "shaderwriter/shaderwriter-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C85189EA152E2F1000EA164B /* Build configuration list for PBXProject "shaderwriter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8518A0C152E2F1000EA164B /* Debug */,
+				C8518A0D152E2F1000EA164B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8518A0E152E2F1000EA164B /* Build configuration list for PBXNativeTarget "shaderwriter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8518A0F152E2F1000EA164B /* Debug */,
+				C8518A10152E2F1000EA164B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C85189E7152E2F1000EA164B /* Project object */;
+}
