@@ -15,6 +15,10 @@
 		C8518A05152E2F1000EA164B /* TSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C8518A04152E2F1000EA164B /* TSAppDelegate.m */; };
 		C8518A08152E2F1000EA164B /* TSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8518A07152E2F1000EA164B /* TSViewController.m */; };
 		C8518A0B152E2F1000EA164B /* TSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8518A09152E2F1000EA164B /* TSViewController.xib */; };
+		C8518A12152E2F4B00EA164B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8518A11152E2F4B00EA164B /* OpenGLES.framework */; };
+		C8518A15152E305000EA164B /* TSGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8518A14152E305000EA164B /* TSGLView.m */; };
+		C8518A17152E309A00EA164B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8518A16152E309A00EA164B /* QuartzCore.framework */; };
+		C8518A24152E6C1F00EA164B /* friday.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C8518A23152E6C1F00EA164B /* friday.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,15 +26,20 @@
 		C85189F4152E2F1000EA164B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C85189F6152E2F1000EA164B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C85189F8152E2F1000EA164B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		C85189FC152E2F1000EA164B /* shaderwriter-Info.plist */ = {isa = PBXFileReference; path = "shaderwriter-Info.plist"; sourceTree = "<group>"; };
+		C85189FC152E2F1000EA164B /* shaderwriter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "shaderwriter-Info.plist"; sourceTree = "<group>"; };
 		C85189FE152E2F1000EA164B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C8518A00152E2F1000EA164B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C8518A02152E2F1000EA164B /* shaderwriter-Prefix.pch */ = {isa = PBXFileReference; path = "shaderwriter-Prefix.pch"; sourceTree = "<group>"; };
-		C8518A03152E2F1000EA164B /* TSAppDelegate.h */ = {isa = PBXFileReference; path = TSAppDelegate.h; sourceTree = "<group>"; };
+		C8518A02152E2F1000EA164B /* shaderwriter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "shaderwriter-Prefix.pch"; sourceTree = "<group>"; };
+		C8518A03152E2F1000EA164B /* TSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSAppDelegate.h; sourceTree = "<group>"; };
 		C8518A04152E2F1000EA164B /* TSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSAppDelegate.m; sourceTree = "<group>"; };
-		C8518A06152E2F1000EA164B /* TSViewController.h */ = {isa = PBXFileReference; path = TSViewController.h; sourceTree = "<group>"; };
+		C8518A06152E2F1000EA164B /* TSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSViewController.h; sourceTree = "<group>"; };
 		C8518A07152E2F1000EA164B /* TSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSViewController.m; sourceTree = "<group>"; };
 		C8518A0A152E2F1000EA164B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TSViewController.xib; sourceTree = "<group>"; };
+		C8518A11152E2F4B00EA164B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		C8518A13152E305000EA164B /* TSGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGLView.h; sourceTree = "<group>"; };
+		C8518A14152E305000EA164B /* TSGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGLView.m; sourceTree = "<group>"; };
+		C8518A16152E309A00EA164B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C8518A23152E6C1F00EA164B /* friday.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = friday.jpg; path = Resources/friday.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,9 +47,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C85189F5152E2F1000EA164B /* UIKit.framework in Frameworks */,
-				C85189F7152E2F1000EA164B /* Foundation.framework in Frameworks */,
 				C85189F9152E2F1000EA164B /* CoreGraphics.framework in Frameworks */,
+				C85189F7152E2F1000EA164B /* Foundation.framework in Frameworks */,
+				C8518A12152E2F4B00EA164B /* OpenGLES.framework in Frameworks */,
+				C8518A17152E309A00EA164B /* QuartzCore.framework in Frameworks */,
+				C85189F5152E2F1000EA164B /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,9 +78,11 @@
 		C85189F3152E2F1000EA164B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C85189F4152E2F1000EA164B /* UIKit.framework */,
-				C85189F6152E2F1000EA164B /* Foundation.framework */,
 				C85189F8152E2F1000EA164B /* CoreGraphics.framework */,
+				C85189F6152E2F1000EA164B /* Foundation.framework */,
+				C8518A11152E2F4B00EA164B /* OpenGLES.framework */,
+				C8518A16152E309A00EA164B /* QuartzCore.framework */,
+				C85189F4152E2F1000EA164B /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -77,12 +90,15 @@
 		C85189FA152E2F1000EA164B /* shaderwriter */ = {
 			isa = PBXGroup;
 			children = (
+				C8518A22152E6C1500EA164B /* Resources */,
 				C8518A03152E2F1000EA164B /* TSAppDelegate.h */,
 				C8518A04152E2F1000EA164B /* TSAppDelegate.m */,
 				C8518A06152E2F1000EA164B /* TSViewController.h */,
 				C8518A07152E2F1000EA164B /* TSViewController.m */,
 				C8518A09152E2F1000EA164B /* TSViewController.xib */,
 				C85189FB152E2F1000EA164B /* Supporting Files */,
+				C8518A13152E305000EA164B /* TSGLView.h */,
+				C8518A14152E305000EA164B /* TSGLView.m */,
 			);
 			path = shaderwriter;
 			sourceTree = "<group>";
@@ -96,6 +112,14 @@
 				C8518A02152E2F1000EA164B /* shaderwriter-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C8518A22152E6C1500EA164B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C8518A23152E6C1F00EA164B /* friday.jpg */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +176,7 @@
 			files = (
 				C85189FF152E2F1000EA164B /* InfoPlist.strings in Resources */,
 				C8518A0B152E2F1000EA164B /* TSViewController.xib in Resources */,
+				C8518A24152E6C1F00EA164B /* friday.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +190,7 @@
 				C8518A01152E2F1000EA164B /* main.m in Sources */,
 				C8518A05152E2F1000EA164B /* TSAppDelegate.m in Sources */,
 				C8518A08152E2F1000EA164B /* TSViewController.m in Sources */,
+				C8518A15152E305000EA164B /* TSGLView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +239,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
+				WARNING_CFLAGS = "-Wall";
 			};
 			name = Debug;
 		};
@@ -234,6 +261,7 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
+				WARNING_CFLAGS = "-Wall";
 			};
 			name = Release;
 		};
