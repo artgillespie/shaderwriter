@@ -29,11 +29,12 @@ NSString *const kGPUImageVertexShaderString = SHADER_STRING
 
 
 NSString *const kGPUImagePassthroughFragmentShaderString = @"\
-precision mediump float;\n\
-varying vec4 pos;\n\
+varying highp vec2 textureCoordinate;\n\
+uniform sampler2D inputImageTexture;\n\
 void main()\n\
 {\n\
-    gl_FragColor = vec4(1., 0., 0., 1.); \n\
+    lowp vec4 clr = texture2D(inputImageTexture, textureCoordinate);\n\
+    gl_FragColor = clr;\n\
 }\n";
 
 GLuint compileShader(NSString *shaderString, GLenum type, NSError **error) {
@@ -71,17 +72,27 @@ GLuint linkProgram(GLuint vertexShader, GLuint fragmentShader, NSError **error) 
 }
 
 GLuint textureForImage(UIImage *img, NSError **error) {
-    NSCAssert(nil != img, @"NO IMAGE PROVIDED");
-    unsigned char *textureData = (unsigned char *)malloc(img.size.width * img.size.height * 4);
-    CGContextRef textureContext = CGBitmapContextCreate(textureData, img.size.width, img.size.height, 8, img.size.width * 4,
-                                                        CGImageGetColorSpace(img.CGImage), kCGImageAlphaPremultipliedLast);
-    CGContextDrawImage(textureContext, CGRectMake(0.f, 0.f, img.size.width, img.size.height), img.CGImage);
-    CGContextRelease(textureContext);
+    GLuint w = CGImageGetWidth(img.CGImage);
+    GLuint h = CGImageGetHeight(img.CGImage);
+    unsigned char *textureData = (unsigned char *)malloc(w * h * 4);
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef textureContext = CGBitmapContextCreate(textureData, w, h, 8, w * 4,
+                                                        colorSpace, kCGImageAlphaPremultipliedLast);
+
+    CGContextTranslateCTM(textureContext, 0., h);
+    CGContextScaleCTM(textureContext, 1.0f, -1.f);
+    CGColorSpaceRelease(colorSpace);
+    CGContextDrawImage(textureContext, CGRectMake(0.f, 0.f, w, h), img.CGImage);
 
     GLuint tex;
     glGenTextures(1, &tex);
     glBindTexture(GL_TEXTURE_2D, tex);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, img.size.width, img.size.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, textureData);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, w, h, 0, GL_RGBA, GL_UNSIGNED_BYTE, textureData);
+
+    CGContextRelease(textureContext);
+    free(textureData);
     return tex;
 }
 
@@ -93,7 +104,9 @@ GLuint textureForImage(UIImage *img, NSError **error) {
     GLuint _framebuffer;
     GLuint _colorRenderBuffer;
     CADisplayLink *_displayLink;
-    GLint _positionAttrib;
+    GLint _filterPositionAttribute;
+    GLint _filterTextureCoordinateAttribute;
+    GLint _filterInputTextureUniform;
     GLuint _texture;
 }
 
@@ -148,13 +161,20 @@ GLuint textureForImage(UIImage *img, NSError **error) {
     _program = linkProgram(_vertexShader, _fragmentShader, &error);
     NSAssert1(nil == error, @"Linking program failed: %@", error);
 
-    _positionAttrib = glGetAttribLocation(_program, "vPosition");
+    _filterPositionAttribute = glGetAttribLocation(_program, "position");
+    _filterTextureCoordinateAttribute = glGetAttribLocation(_program, "inputTextureCoordinate");
+    _filterInputTextureUniform = glGetUniformLocation(_program, "inputImageTexture");
+
+    glEnableVertexAttribArray(_filterPositionAttribute);
+    glEnableVertexAttribArray(_filterTextureCoordinateAttribute);
 
     glUseProgram(_program);
 
     // load the image into a texture
     _texture = textureForImage([UIImage imageNamed:@"friday.jpg"], &error);
     NSAssert1(nil == error, @"Couldn't load texture: %@", error);
+
+    glViewport(0, 0, self.glView.bounds.size.width, self.glView.bounds.size.height);
 
     // set up the display link
     _displayLink = [[UIScreen mainScreen] displayLinkWithTarget:self selector:@selector(update)];
@@ -183,14 +203,29 @@ GLuint textureForImage(UIImage *img, NSError **error) {
     glClearColor(0.f, 0.f, 1.f, 1.f);
     glClear(GL_COLOR_BUFFER_BIT);
 
-    glViewport(0, 0, self.glView.bounds.size.width, self.glView.bounds.size.height);
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, _texture);
 
-    GLfloat vVertices[] = { -1.f, 1.f,  0.0f,
-                            1.f,  1.f,  0.0f,
-                            -1.f, -1.f, 0.0f,
-                            1.f,  -1.f, 0.0f };
-    glVertexAttribPointer(_positionAttrib, 3, GL_FLOAT, GL_FALSE, 0, vVertices);
-    glEnableVertexAttribArray(_positionAttrib);
+    glUniform1i(_filterInputTextureUniform, 0);
+
+    static const GLfloat vertices[] = {
+        -.35f, -1.f,
+        .35f,  -1.f,
+        -.35f, 1.f,
+        .35f,  1.f,
+    };
+
+    static const GLfloat textureCoordinates[] = {
+        0.0f, 0.0f,
+        1.0f, 0.0f,
+        0.0f, 1.0f,
+        1.0f, 1.0f,
+    };
+
+    glVertexAttribPointer(_filterPositionAttribute, 2, GL_FLOAT, 0, 0, vertices);
+    glEnableVertexAttribArray(_filterPositionAttribute);
+    glVertexAttribPointer(_filterTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0, textureCoordinates);
+    glEnableVertexAttribArray(_filterTextureCoordinateAttribute);
 
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
