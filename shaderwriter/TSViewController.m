@@ -122,9 +122,7 @@ GLuint textureForImage(UIImage *img, NSError **error) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.shaderEditor.text = kGPUImagePassthroughFragmentShaderString;
-
+    
     // create the gl context
     _glContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
     [EAGLContext setCurrentContext:_glContext];
@@ -152,11 +150,19 @@ GLuint textureForImage(UIImage *img, NSError **error) {
         NSAssert1(false, @"failed to create complete framebuffer: %d", status);
     }
 
-    // compile our shaders
+    // load the default fragment shader from the bundle
     NSError *error = nil;
+    NSString *shaderPath = [[NSBundle mainBundle] pathForResource:@"base" ofType:@"fsh"];
+    NSAssert(nil != shaderPath, @"Couldn't find base.fsh");
+    NSString *fragmentShaderSource = [NSString stringWithContentsOfFile:shaderPath encoding:NSUTF8StringEncoding error:&error];
+    NSAssert(nil == error, @"Couldn't load fragment shader: %@", error);
+    
+    self.shaderEditor.text = fragmentShaderSource;
+    
+    // compile our shaders
     _vertexShader = compileShader(kGPUImageVertexShaderString, GL_VERTEX_SHADER, &error);
     NSAssert1(nil == error, @"Vertex shader compilation failed: %@", error);
-    _fragmentShader = compileShader(kGPUImagePassthroughFragmentShaderString, GL_FRAGMENT_SHADER, &error);
+    _fragmentShader = compileShader(fragmentShaderSource, GL_FRAGMENT_SHADER, &error);
     NSAssert1(nil == error, @"Fragment shader compilation failed: %@", error);
     _program = linkProgram(_vertexShader, _fragmentShader, &error);
     NSAssert1(nil == error, @"Linking program failed: %@", error);
@@ -200,7 +206,7 @@ GLuint textureForImage(UIImage *img, NSError **error) {
 
     self.frameRateLabel.text = [NSString stringWithFormat:@"%.1f", 1. / elapsed];
 
-    glClearColor(0.f, 0.f, 1.f, 1.f);
+    glClearColor(0.1f, 0.1f, 0.1f, 1.f);
     glClear(GL_COLOR_BUFFER_BIT);
 
     glActiveTexture(GL_TEXTURE0);

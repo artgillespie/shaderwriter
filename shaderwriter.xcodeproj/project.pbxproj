@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C823FC99152F426F0065D79A /* base.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C823FC96152F42590065D79A /* base.fsh */; };
 		C85189F5152E2F1000EA164B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C85189F4152E2F1000EA164B /* UIKit.framework */; };
 		C85189F7152E2F1000EA164B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C85189F6152E2F1000EA164B /* Foundation.framework */; };
 		C85189F9152E2F1000EA164B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C85189F8152E2F1000EA164B /* CoreGraphics.framework */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C823FC96152F42590065D79A /* base.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = base.fsh; path = Resources/base.fsh; sourceTree = "<group>"; };
 		C85189F0152E2F1000EA164B /* shaderwriter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shaderwriter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C85189F4152E2F1000EA164B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C85189F6152E2F1000EA164B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -99,6 +101,7 @@
 				C85189FB152E2F1000EA164B /* Supporting Files */,
 				C8518A13152E305000EA164B /* TSGLView.h */,
 				C8518A14152E305000EA164B /* TSGLView.m */,
+				C823FC96152F42590065D79A /* base.fsh */,
 			);
 			path = shaderwriter;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 			files = (
 				C85189FF152E2F1000EA164B /* InfoPlist.strings in Resources */,
 				C8518A0B152E2F1000EA164B /* TSViewController.xib in Resources */,
+				C823FC99152F426F0065D79A /* base.fsh in Resources */,
 				C8518A24152E6C1F00EA164B /* friday.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,6 +310,7 @@
 				C8518A10152E2F1000EA164B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
