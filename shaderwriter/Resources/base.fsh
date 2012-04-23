@@ -9,13 +9,15 @@ void saturate(inout lowp vec3 rgb, in lowp float saturation);
 void haze(inout lowp vec3 rgb, in highp vec2 texCoord, in lowp vec3 color, in highp float slope, in highp float distance);
 void contrast(inout lowp vec3 rgb, in highp float contrast);
 
+mediump mat4 colorMatrix = mat4(
+    vec4(1.5, 0.0, 0.0, 0.0),
+    vec4(0.0, 1.0, 0.0, 0.0),
+    vec4(0.0, 0.0, 1.0, 0.0),
+    vec4(0.0, 0.0, 0.0, 1.0)
+);
+
 void main() {
-    lowp vec3 rgb = texture2D(inputImageTexture, textureCoordinate).xyz;
-    saturate(rgb, .5);
-    vignette(rgb, textureCoordinate, .9, .5);
-    haze(rgb, textureCoordinate, vec3(1.), 0.0, 0.2);
-    contrast(rgb, 3.0);
-    gl_FragColor = vec4(vec3(rgb),1.0);
+    gl_FragColor = colorMatrix * texture2D(inputImageTexture, textureCoordinate);    
 }
 
 // Re-usable functions. Function calls don't appear to impact performance!
