@@ -10,6 +10,9 @@
 #import <OpenGLES/ES2/gl.h>
 #import <QuartzCore/QuartzCore.h>
 
+// change this to your desktop machine
+NSString * const TSHotloadURL = @"http://192.168.1.101/~artgillespie/base.fsh";
+
 #define STRINGIZE(x)        # x
 #define STRINGIZE2(x)       STRINGIZE(x)
 #define SHADER_STRING(text) @ STRINGIZE2(text)
@@ -26,16 +29,6 @@ NSString *const kGPUImageVertexShaderString = SHADER_STRING
             textureCoordinate = inputTextureCoordinate.xy;
         }
     );
-
-
-NSString *const kGPUImagePassthroughFragmentShaderString = @"\
-varying highp vec2 textureCoordinate;\n\
-uniform sampler2D inputImageTexture;\n\
-void main()\n\
-{\n\
-    lowp vec4 clr = texture2D(inputImageTexture, textureCoordinate);\n\
-    gl_FragColor = clr;\n\
-}\n";
 
 GLuint compileShader(NSString *shaderString, GLenum type, NSError **error) {
     GLuint shader = glCreateShader(type);
@@ -154,11 +147,6 @@ GLuint textureForImage(UIImage *img, NSError **error) {
     }
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _colorRenderBuffer);
 
-    GLint w;
-    GLint h;
-    glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &w);
-    glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &h);
-
     GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
     if (GL_FRAMEBUFFER_COMPLETE != status) {
         NSAssert1(false, @"failed to create complete framebuffer: %d", status);
@@ -210,6 +198,7 @@ GLuint textureForImage(UIImage *img, NSError **error) {
 }
 
 - (void)update {
+    // process our image and display it on the screen
     static CFTimeInterval last_timestamp = 0.;
 
     CFTimeInterval elapsed = _displayLink.timestamp - last_timestamp;
@@ -270,7 +259,7 @@ GLuint textureForImage(UIImage *img, NSError **error) {
 
 - (void)compileFragmentShader:(id)sender {
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://10.0.1.12/~artgillespie/base.fsh"] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5.];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:TSHotloadURL] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5.];
     NSURLResponse *response;
     NSError *error;
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
