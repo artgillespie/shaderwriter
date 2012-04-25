@@ -67,15 +67,16 @@ GLuint linkProgram(GLuint vertexShader, GLuint fragmentShader, NSError **error) 
 GLuint textureForImage(UIImage *img, NSError **error) {
     GLuint w = CGImageGetWidth(img.CGImage);
     GLuint h = CGImageGetHeight(img.CGImage);
-    
+
     // make sure our image isn't larger in any dimension than the max texture size
     GLint maxTexture;
+
     glGetIntegerv(GL_MAX_TEXTURE_SIZE, &maxTexture);
     if (maxTexture < w || maxTexture < h) {
         // here we'd probably scale the image so its longest edge was == maxTexture
         NSCAssert(NO, @"Image dimensions > maxTextureSize");
     }
-    
+
     // Draw the image into a buffer that we can hand off to OpenGL
     unsigned char *textureData = (unsigned char *)malloc(w * h * 4);
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
@@ -129,7 +130,7 @@ GLuint textureForImage(UIImage *img, NSError **error) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     // create the gl context
     _glContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
     [EAGLContext setCurrentContext:_glContext];
@@ -158,7 +159,7 @@ GLuint textureForImage(UIImage *img, NSError **error) {
     NSAssert(nil != shaderPath, @"Couldn't find base.fsh");
     NSString *fragmentShaderSource = [NSString stringWithContentsOfFile:shaderPath encoding:NSUTF8StringEncoding error:&error];
     NSAssert(nil == error, @"Couldn't load fragment shader: %@", error);
-        
+
     // compile our shaders
     _vertexShader = compileShader(kGPUImageVertexShaderString, GL_VERTEX_SHADER, &error);
     NSAssert1(nil == error, @"Vertex shader compilation failed: %@", error);
@@ -212,7 +213,7 @@ GLuint textureForImage(UIImage *img, NSError **error) {
     glClear(GL_COLOR_BUFFER_BIT);
 
     // bind the texture containing the image we want to process to TEXTURE0 unit
-    // in 3GS/iPad 1 hardware and up, you can address up to 8 texture 
+    // in 3GS/iPad 1 hardware and up, you can address up to 8 texture
     // units in the fragment shader. (i.e., TEXTURE7)
     // (source: http://developer.apple.com/library/ios/#documentation/3DDrawing/Conceptual/OpenGLES_ProgrammingGuide/OpenGLESPlatforms/OpenGLESPlatforms.html
     glActiveTexture(GL_TEXTURE0);
@@ -258,11 +259,12 @@ GLuint textureForImage(UIImage *img, NSError **error) {
 }
 
 - (void)compileFragmentShader:(id)sender {
-    
+
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:TSHotloadURL] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5.];
     NSURLResponse *response;
     NSError *error;
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+
     if (!data) {
         NSAssert(NO, @"Couldn't get shader from server.");
     }
@@ -270,7 +272,7 @@ GLuint textureForImage(UIImage *img, NSError **error) {
         NSAssert(NO, @"Didn't get 200 OK status from server.");
     }
     NSString *shaderSource = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    
+
     GLuint tmpShader = compileShader(shaderSource, GL_FRAGMENT_SHADER, &error);
 
     if (nil != error) {
