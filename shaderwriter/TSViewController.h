@@ -12,10 +12,8 @@
 @interface TSViewController : UIViewController
 
 - (IBAction)compileFragmentShader:(id)sender;
-- (IBAction)saveShader:(id)sender;
 
 @property (nonatomic, strong) IBOutlet TSGLView *glView;
-@property (nonatomic, strong) IBOutlet UITextView *shaderEditor;
 @property (nonatomic, strong) IBOutlet UILabel *frameRateLabel;
 
 @end

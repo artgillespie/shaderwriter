@@ -10,7 +10,7 @@ void haze(inout lowp vec3 rgb, in highp vec2 texCoord, in lowp vec3 color, in hi
 void contrast(inout lowp vec3 rgb, in highp float contrast);
 
 mediump mat4 colorMatrix = mat4(
-    vec4(1.5, 0.0, 0.0, 0.0),
+    vec4(1.0, 0.0, 0.0, 0.0),
     vec4(0.0, 1.0, 0.0, 0.0),
     vec4(0.0, 0.0, 1.0, 0.0),
     vec4(0.0, 0.0, 0.0, 1.0)

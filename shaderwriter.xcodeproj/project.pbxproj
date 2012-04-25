@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C823FC99152F426F0065D79A /* base.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C823FC96152F42590065D79A /* base.fsh */; };
+		C84A210F1546110D0018EF6B /* Filters.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C84A210E1546110D0018EF6B /* Filters.jpg */; };
 		C85189F5152E2F1000EA164B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C85189F4152E2F1000EA164B /* UIKit.framework */; };
 		C85189F7152E2F1000EA164B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C85189F6152E2F1000EA164B /* Foundation.framework */; };
 		C85189F9152E2F1000EA164B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C85189F8152E2F1000EA164B /* CoreGraphics.framework */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		C823FC96152F42590065D79A /* base.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = base.fsh; path = Resources/base.fsh; sourceTree = "<group>"; };
+		C84A210E1546110D0018EF6B /* Filters.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Filters.jpg; path = Resources/Filters.jpg; sourceTree = "<group>"; };
 		C85189F0152E2F1000EA164B /* shaderwriter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shaderwriter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C85189F4152E2F1000EA164B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C85189F6152E2F1000EA164B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -120,6 +122,7 @@
 		C8518A22152E6C1500EA164B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C84A210E1546110D0018EF6B /* Filters.jpg */,
 				C8518A23152E6C1F00EA164B /* friday.jpg */,
 			);
 			name = Resources;
@@ -181,6 +184,7 @@
 				C8518A0B152E2F1000EA164B /* TSViewController.xib in Resources */,
 				C823FC99152F426F0065D79A /* base.fsh in Resources */,
 				C8518A24152E6C1F00EA164B /* friday.jpg in Resources */,
+				C84A210F1546110D0018EF6B /* Filters.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
